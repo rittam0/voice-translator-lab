@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your voice, another language</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">LOCAL AI · ENGLISH ↔ HINDI</p>
+      <h1>Your voice.<br><span>Another language.</span></h1>
+      <p class="lede">Record one complete thought. Three local models transcribe it,
+        translate it, and speak it back in the character of your voice.</p>
+
+      <section class="card">
+        <div class="languages">
+          <label>From
+            <select id="source">
+              <option value="en">English</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </label>
+          <button id="swap" aria-label="Swap languages">⇄</button>
+          <label>To
+            <select id="target">
+              <option value="hi">हिन्दी</option>
+              <option value="en">English</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="record-area">
+          <button id="record" class="record"><i></i><span>Start recording</span></button>
+          <p id="status">Allow microphone access when prompted</p>
+        </div>
+
+        <div id="result" class="result" hidden>
+          <div><small>Heard</small><p id="transcript"></p></div>
+          <div><small>Translated</small><p id="translation"></p></div>
+          <audio id="playback" controls></audio>
+          <div class="metrics">
+            <span>ASR <b id="asr"></b></span>
+            <span>NMT <b id="nmt"></b></span>
+            <span>Voice <b id="tts"></b></span>
+            <span>Total <b id="total"></b></span>
+          </div>
+        </div>
+      </section>
+      <p class="footnote">Audio stays on this server. Models load on the first request,
+        so the first run is slower.</p>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+# Optional Odia V2 dependencies. IndicConformer is gated on Hugging Face and
+# requires the owner to accept AI4Bharat's model access conditions.
+nemo_toolkit[asr]==2.2.1
+indictranstoolkit==1.1.1

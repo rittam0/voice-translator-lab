@@ -1,0 +1,12 @@
+{
+  "language": "ory",
+  "items": [
+    {"id": "personal-introduction", "description": "A personal introduction"},
+    {"id": "numbers-date", "description": "A sentence containing numbers and a date"},
+    {"id": "conversation", "description": "An ordinary conversational statement"},
+    {"id": "two-sentences", "description": "A two-sentence statement"},
+    {"id": "personal-place-name", "description": "A sentence containing an Odia personal or place name"}
+  ],
+  "recordings": "owner supplied",
+  "owner_listening_scores": "not measured"
+}

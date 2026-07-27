@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: voice-translator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: voice-translator
+  template:
+    metadata:
+      labels:
+        app: voice-translator
+    spec:
+      containers:
+        - name: api
+          image: voice-translator:0.1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          env:
+            - name: VT_WHISPER_MODEL
+              value: base
+            - name: VT_WHISPER_COMPUTE_TYPE
+              value: int8
+            - name: HF_HOME
+              value: /models/huggingface
+            - name: VT_OPENVOICE_DIR
+              value: /models/openvoice
+          resources:
+            requests:
+              cpu: "2"
+              memory: 4Gi
+            limits:
+              cpu: "4"
+              memory: 8Gi
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          volumeMounts:
+            - name: model-cache
+              mountPath: /models
+            - name: outputs
+              mountPath: /app/data
+      volumes:
+        - name: model-cache
+          persistentVolumeClaim:
+            claimName: voice-translator-models
+        - name: outputs
+          emptyDir:
+            sizeLimit: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: voice-translator-models
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 12Gi

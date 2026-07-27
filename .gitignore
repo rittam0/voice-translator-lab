@@ -1,0 +1,59 @@
+# Python environments, caches, coverage
+.venv/
+.venv-*/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# JavaScript dependencies/builds
+frontend/node_modules/
+frontend/dist/
+frontend/*.tsbuildinfo
+frontend/vite.config.js
+frontend/vite.config.d.ts
+
+# Models, package caches, and tools
+checkpoints*/
+models/
+.cache/
+huggingface/
+.tools/
+
+# Generated data, metrics, and acceptance artifacts
+data/
+artifacts/
+*.zip
+*.tar
+*.tar.gz
+
+# Personal recordings and generated audio
+samples/
+demo/*.wav
+demo/*.mp3
+demo/*.m4a
+demo/*.webm
+demo/*.mp4
+demo/*.mov
+*.recording.wav
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+!frontend/.env.example
+frontend/.env.local
+*.pem
+*.key
+*token*
+secrets/
+
+# Editors/OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,2 @@
+# Install only in the isolated optional OmniVoice environment.
+omnivoice==0.1.5
