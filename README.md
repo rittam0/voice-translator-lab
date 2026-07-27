@@ -4,11 +4,11 @@ An experimental, microphone-first speech translation system exploring whether
 open models can translate short speech while retaining some characteristics of
 the original speaker.
 
-This is a **research prototype, not a production service**. The repository is
+This is a research prototype, not a production service The repository is
 published because the architecture, recovery logic, tests, measurements, and
-failure analysis are useful—even though the final quality target was not met.
+failure analysis are useful even though the final quality target was not met.
 
-## What was actually demonstrated
+## what was actually demonstrated
 
 | Route | Prototype status | Real listening result |
 |---|---|---|
@@ -102,9 +102,9 @@ The response contains the recognized transcript, English reference text,
 translated text, model and conditioning metadata, stage timings, and a
 short-lived `audio_url`.
 
-## Why the experiment stopped
+## why was the experiment stopped
 
-The self-hosted pipeline proved much slower and less reliable than a managed
+The self-hosted stuff proved much slower and less reliable than a managed
 real-time speech translation model. Cold model loading dominated latency,
 speech recognition errors propagated through every later stage, zero-shot
 speaker similarity varied, and the mixed ML dependency stack was fragile.
@@ -114,15 +114,6 @@ as Gemini Live Translate for the primary path and retain this repository only
 as a self-hosted baseline. That conclusion is part of the experiment—not hidden
 from it.
 
-## Safety and licensing
-
-- Clone only your own voice or a speaker who has explicitly consented.
-- Personal recordings, generated audio, checkpoints, secrets, and runtime
-  artifacts are intentionally excluded.
-- Qwen3-TTS code/model licensing and every downloaded checkpoint must be
-  reviewed before redistribution or commercial use.
-- SeamlessM4T weights used during the experiment are CC-BY-NC-4.0; this
-  implementation is not presented as commercially deployable.
 
 ## Resume-safe description
 
